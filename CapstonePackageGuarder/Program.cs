@@ -99,14 +99,14 @@ class Program
                         catch (Exception innerEx) when (innerEx.Message.Contains("429") || innerEx.Message.Contains("Too Many Requests"))
                         {
                             retries++;
-                            Console.WriteLine($"\n[⏳ Rate Limit Hit (429 API Burst). Зачекаємо 20 секунд для скидання квоти... (Спроба {retries}/3)]");
+                            Console.WriteLine($"\n[⏳ Rate Limit Hit (429 API Burst). Waiting 20 seconds to reset quota... (Attempt {retries}/3)]");
                             await Task.Delay(20000); // 20 seconds
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"\n[Помилка]: {ex.Message}");
+                    Console.WriteLine($"\n[Error]: {ex.Message}");
                 }
             }
         }
