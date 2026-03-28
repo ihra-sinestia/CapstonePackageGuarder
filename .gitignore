@@ -1,0 +1,24 @@
+# macOS system files
+.DS_Store
+
+# .NET gitignore
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files
+.vs/
+.vscode/
+.idea/
+
+# Secrets
+appsettings.json
+UserSecrets/
+secrets.json
+
+# Tooling
+.gemini/
+*.tmp
+/tmp/

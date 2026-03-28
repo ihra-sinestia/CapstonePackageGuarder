@@ -1,0 +1,27 @@
+graph TD
+    User["User (Terminal)"] --> CPG["CPG Agent (Program.cs)"]
+    CPG --> Kernel["Semantic Kernel"]
+    
+    subgraph "Knowledge Retrieval (RAG)"
+        KB["vulnerabilities_kb.md"] --> Ingestor["DataIngestor.cs"]
+        Ingestor --> Embeddings["Gemini Embedding (REST Client)"]
+        Embeddings --> Memory["VolatileMemoryStore"]
+    end
+    
+    subgraph "Intelligent Tools (Plugins)"
+        Kernel --> Plugin["ProjectAnalyzerPlugin.cs"]
+        Plugin --> FS["File System (Auto-Discovery)"]
+        Plugin --> XML["XML XDocument (Safe Parsing)"]
+        Plugin --> MemorySearch["Memory Search (Relevancy Filter)"]
+    end
+    
+    CPG --> LLM["Gemini 2.5 Flash (Reasoning)"]
+    LLM --> Decision["Security Decision"]
+    
+    Decision --> UserAsk["Permission Request"]
+    UserAsk -- "Yes" --> Update["NuGet CLI (dotnet add package)"]
+    Update --> TestApp["Target .csproj (Remediated)"]
+    
+    style User fill:#f9f,stroke:#333,stroke-width:4px
+    style TestApp fill:#00ff00,stroke:#333
+    style KB fill:#fff,stroke:#333,stroke-dasharray: 5 5
