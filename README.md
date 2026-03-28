@@ -6,9 +6,6 @@ Capstone Package Guarder (CPG) is an autonomous C# agent designed to identify an
 
 ---
 
-## 📺 Demo Video
-[Link to your Demo Video] 
-
 ## 🚀 Key Features
 - **Project Auto-Discovery**: Recursively finds all `.csproj` files in any specified directory tree.
 - **Dependency Analysis**: High-precision parsing of NuGet references using XML `XDocument` (avoiding comments and false positives).
